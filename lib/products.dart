@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Products extends StatelessWidget {
-  final List<String> products;
+  final List<Map<String, String>> products;
 
   Products([this.products = const []]) {
     print("Product Widget constructor");
@@ -11,14 +11,14 @@ class Products extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset('assets/foodmain.jpg'),
-          Text(products[index])
+          Image.asset(products[index]['url']),
+          Text(products[index]['title'])
         ],
       ),
     );
   }
 
-  Widget _buildProductLists(){
+  Widget _buildProductLists() {
     Widget productCard;
     if (products.length > 0) {
       productCard = ListView.builder(
@@ -29,6 +29,7 @@ class Products extends StatelessWidget {
       productCard = Center(
         child: Text("No data"),
       );
+      //productCard = Container();
     }
     return productCard;
   }
@@ -36,6 +37,7 @@ class Products extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("Prodcut Widget builded");
+    //build nunca debe retornar null
     return _buildProductLists();
   }
 }

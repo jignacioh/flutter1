@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import './product_manager.dart';
 import './text_control.dart';
+import './pages/home.dart';
 
 main() {
   runApp(MyApp());
@@ -17,12 +18,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.deepPurple,
         brightness: Brightness.light
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('My App Bar'),
-        ),
-        body: ProductManager(),
-      ),
+      home: HomePage(),
     );
 
     /*

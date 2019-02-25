@@ -4,7 +4,7 @@ import './products.dart';
 import './product_control.dart';
 
 class ProductManager extends StatefulWidget {
-  final String productoInicial;
+  final Map<String, String> productoInicial;
   //ProductManager({this.productoInicial = 'Plato tester'}) {
   ProductManager({this.productoInicial}) {
     print("Prodcut Manager Widget construct");
@@ -19,7 +19,7 @@ class ProductManager extends StatefulWidget {
 }
 
 class _ProductManagerState extends State<ProductManager> {
-  List<String> _products = [];
+  List<Map<String, String>> _products = [];
   @override
   void didUpdateWidget(ProductManager oldWidget) {
     // TODO: implement didUpdateWidget
@@ -27,7 +27,8 @@ class _ProductManagerState extends State<ProductManager> {
     super.didUpdateWidget(oldWidget);
   }
 
-  void _addProduct(String product) {
+  //dynamic
+  void _addProduct(Map<String, String> product) {
     setState(() {
       _products.add(product);
     });
@@ -39,7 +40,7 @@ class _ProductManagerState extends State<ProductManager> {
     print("Product Manager State initState");
     // TODO: implement initState
     super.initState();
-    if (widget.productoInicial!=null) {
+    if (widget.productoInicial != null) {
       _products.add(widget.productoInicial);
     }
   }
@@ -54,7 +55,7 @@ class _ProductManagerState extends State<ProductManager> {
           margin: EdgeInsets.all(10.0),
           child: ProductControl(_addProduct),
         ),
-        Expanded(child:  Products(_products))
+        Expanded(child: Products(_products))
       ],
     );
   }
